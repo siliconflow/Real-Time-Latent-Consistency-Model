@@ -30,12 +30,12 @@ jobs:
         image:
           - {
               suffix: "cu121",
-              repo: "onediff-lcm",
+              repo: "onediff-lcm-demo",
               index: "https://github.com/siliconflow/oneflow_releases/releases/expanded_assets/community_cu121",
             }
           - {
               suffix: "cu121",
-              repo: "onediff-lcm-pro",
+              repo: "onediff-lcm-demo-pro",
               index: "https://github.com/siliconflow/oneflow_releases/releases/expanded_assets/enterprise_cu121",
             }
 
