@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 WORKDIR /code
 
-RUN mkdir -p /etc/apt/keyrings 
+RUN mkdir -p /etc/apt/keyrings
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list > /dev/null
 RUN apt-get update && apt-get install nodejs -y
@@ -37,6 +37,10 @@ ENV HOME=/home/user \
     SYSTEM=spaces
 
 RUN pip3 install --no-cache-dir --upgrade --pre -r /code/requirements.txt
+ARG ONEFLOW_PIP_INDEX
+ARG ONEFLOW_PACKAGE_NAME=oneflow
+RUN pip3 install -f ${ONEFLOW_PIP_INDEX} ${ONEFLOW_PACKAGE_NAME}
+RUN pip3 install --pre onediff
 
 # Set the working directory to the user's home directory
 WORKDIR $HOME/app
