@@ -39,8 +39,8 @@ ENV HOME=/home/user \
 RUN pip3 install --no-cache-dir --upgrade --pre -r /code/requirements.txt
 ARG ONEFLOW_PIP_INDEX
 ARG ONEFLOW_PACKAGE_NAME=oneflow
-RUN pip install -f ${ONEFLOW_PIP_INDEX} ${ONEFLOW_PACKAGE_NAME}
-RUN pip install python3 -m pip install --pre onediff
+RUN pip3 install -f ${ONEFLOW_PIP_INDEX} ${ONEFLOW_PACKAGE_NAME}
+RUN pip3 install --pre onediff
 
 # Set the working directory to the user's home directory
 WORKDIR $HOME/app
