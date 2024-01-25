@@ -16,7 +16,7 @@ env:
   NAMESPACE: oneflow
 
 concurrency:
-  group: sd-${{ github.ref }}
+  group: onediff-lcm-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
